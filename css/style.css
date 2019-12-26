@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #5d4954;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo {
+    color: rgb(226, 226, 226);
+    text-transform: uppercase;
+    letter-spacing: .4rem;
+    font-size: 2rem;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around; /* justify-content + width otherwise the space it won't happen.That's why I wasn't able to do it every time when I was trying to use 2 times justify content for the nav and nav links */
+    width: 30%;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: rgb(226, 226, 226);
+    text-decoration: none;
+    letter-spacing: .3rem;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.burger {
+    display: none;
+}
+
+.burger div {
+    width: 2.5rem;
+    height: .3rem;
+    background-color: rgb(226, 226, 226);
+    margin: .5rem;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 1024px) {
+    .nav-links {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden; /* Remove the scroll */
+    }
+    .nav-links {
+        position: absolute;
+        top: 8vh;
+        right: 0;
+        height: 92vh;
+        background-color: #5d4954;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%); /* Move the links container out from the screen */
+        transition: transform 0.5s ease-in; /* That's way doent's show the links immediately  */
+    }
+    .nav-links li {
+        opacity: 0; /* Hide the links */
+    }
+
+    .burger {
+        display: block; /* From hidden to display block in mobile */
+        cursor: pointer;
+    }
+}
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-.5rem, .6rem);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-.5rem, -.6rem);
+}
